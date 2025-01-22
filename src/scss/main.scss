@@ -17,7 +17,6 @@ $DarkGrey: hsl(187, 24%, 22%);
 $size: 16px;
 
 
-
 * {
   margin: 0;
   padding: 0;
@@ -53,6 +52,10 @@ label {
   color: $Red;
   visibility: hidden;
 }
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
 
 body {
   font-family: 'karla', sans-serif;
@@ -60,31 +63,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   form {
     background-color: $White;
     margin: 100px auto;
     padding: 30px 40px;
     border-radius: 25px;
     width: 50%;
+
     h1 {
       color: $DarkGrey;
       margin-bottom: 20px;
     }
+
     .name {
       display: flex;
       align-items: center;
       gap: 15px;
+
       div {
         flex: 1;
         display: flex;
         flex-direction: column;
       }
     }
+
     .email {
       display: flex;
       flex-direction: column;
       margin: 25px 0;
     }
+
     .phone {
       display: flex;
       flex-direction: column;
@@ -95,6 +104,7 @@ body {
       display: flex;
       flex-direction: column;
       margin: 25px 0;
+
       textarea {
         border: 1px solid $MediumGrey;
         outline: none;
@@ -106,22 +116,26 @@ body {
         padding: 15px;
         border-radius: 5px;
         cursor: pointer;
+
         &:hover {
           border-color: $Green;
         }
       }
     }
+
     .consent {
       div {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
+
         input {
           cursor: pointer;
           width: 20px;
           height: 20px;
           accent-color: $Green;
         }
+
         label {
           cursor: pointer;
           margin-left: 15px;
@@ -143,6 +157,52 @@ body {
       cursor: pointer;
     }
   }
+
+  .modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    z-index: 1000; /* Модальное окно поверх других элементов */
+
+    .modal-content {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px; /* Ограничение максимального размера */
+      position: relative; /* Для позиционирования кнопки закрытия */
+
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+      }
+    }
+  }
+
+  .favorite-button {
+    background-color: $Red;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+    padding: 12px 18px;
+    border-radius: 4px;
+
+    :hover {
+      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.44);
+    }
+  }
 }
 
 input:hover {
@@ -161,10 +221,12 @@ input:hover {
   body {
     form {
       width: 80%;
+
       .name {
         flex-direction: column;
         align-items: stretch;
       }
+
       .phone {
         flex-direction: column;
         align-items: stretch;
@@ -172,6 +234,7 @@ input:hover {
     }
   }
 }
+
 @media (min-width: 450px) {
   body {
     form {
@@ -179,16 +242,20 @@ input:hover {
       padding: 20px;
       margin: 40px auto;
       border-radius: 12px;
+
       h1 {
         font-size: 25px;
       }
+
       .name {
         flex-direction: column;
         align-items: stretch;
       }
+
       input[type='submit'] {
         padding: 15px;
       }
+
       .consent {
         label {
           font-size: 14px;

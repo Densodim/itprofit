@@ -1,87 +1,61 @@
 import "../scss/main.scss"
-import IMask from "imask";
-import formSubmit from "./formSubmit";
+import IMask from "imask"
+import formSubmit from "./formSubmit"
+import openModal from "./modal"
+import validateStyle from "./validateStyle"
+import validateForm from "./validateForm"
 
-const phoneInput = document.getElementById('phone');
+document.addEventListener("DOMContentLoaded", function () {
+  const phoneInput = document.getElementById("phone")
+  const modalWindows = document.getElementById("openModalButton")
 
-if (phoneInput) {
+  if (phoneInput) {
     IMask(phoneInput, {
-        mask: '+{375}(00)000-00-00'
-    });
-}
+      mask: "+{375}(00)000-00-00",
+    })
+  }
 
-let firstName = document.getElementById('first-name');
-let email = document.getElementById('email');
-let phone = document.getElementById('phone');
-let message = document.getElementById('message');
-let consent = document.querySelector("[type='checkbox']");
+  let firstName = document.getElementById("first-name")
+  let email = document.getElementById("email")
+  let phone = document.getElementById("phone")
+  let message = document.getElementById("message")
 
-function validateStyle(element) {
-    element.style.border = `1px solid ${element.value === '' ? 'hsl(0, 66%, 56%)' : 'hsl(186, 15%, 59%)'}`;
-    element.nextElementSibling.style.visibility = element.value === '' ? 'visible' : 'hidden';
-}
+  let item = [firstName, email, phone, message]
 
-let item = [firstName, email, phone, message];
-
-function validateForm(item) {
-    let isFormValid = true;
-
-
-        for (let i = 0; i < item.length; i++) {
-            const isValid = validateStyle(item[i]);
-            if (!isValid) {
-                isFormValid = false;
-            }
-        }
-        if (!consent.checked) {
-            consent.nextElementSibling.style.visibility = 'visible';
-            isFormValid = false;
-        }else {
-            consent.nextElementSibling.style.visibility = 'hidden';
-
-        }
-
-    return isFormValid;
-}
-
-document.forms[0].addEventListener('submit', async (e) => {
+  document.forms[0].addEventListener("submit", async (e) => {
     e.preventDefault()
 
-    const isFormValid = validateForm(item);
+    const isFormValid = validateForm(item)
     if (!isFormValid) {
-        return
+      return
     }
 
-    const form = e.target;
-    const url = 'http://localhost:9000/api/form-submit'; // Адрес сервера
+    const form = e.target
+    const url = "http://localhost:9000/api/form-submit"
 
-    const result = await formSubmit(form, url);
+    const result = await formSubmit(form, url)
 
     if (result.success) {
-        alert(result.message)
-        form.reset()
+      openModal(result.message)
+      form.reset()
     } else if (result.fields) {
-        Object.keys(result.fields).forEach(fieldName => {
-            const field = form.querySelector(`[name="${fieldName}"]`)
-            if (field) {
-                validateStyle(field);
-                const errorMsg = field.nextElementSibling;
-                if (errorMsg) {
-                    errorMsg.textContent = result.fields[fieldName];
-                    errorMsg.style.visibility = 'visible';
-                }
-            }
-        })
+      Object.keys(result.fields).forEach((fieldName) => {
+        const field = form.querySelector(`[name="${fieldName}"]`)
+        if (field) {
+          validateStyle(field)
+          const errorMsg = field.nextElementSibling
+          if (errorMsg) {
+            errorMsg.textContent = result.fields[fieldName]
+            errorMsg.style.visibility = "visible"
+          }
+        }
+      })
     } else {
-        alert(result.message)
+      openModal(result.message)
     }
+  })
 
+  modalWindows.addEventListener("click", () => {
+    openModal()
+  })
 })
-
-
-
-
-
-
-
-

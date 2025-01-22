@@ -1,6 +1,8 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Karla", sans-serif;
-  src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("ttf"), url("../assets/fonts/Karla-VariableFont_wght.ttf") format("ttf");
+  src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("ttf"),
+    url("../assets/fonts/Karla-VariableFont_wght.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +18,8 @@ body {
   align-items: center;
 }
 
-input[type=email], input[type=text] {
+input[type="email"],
+input[type="text"] {
   padding: 14px;
   border-radius: 5px;
   border: 1px solid hsl(186, 15%, 59%);
@@ -37,6 +40,11 @@ label {
 .error {
   color: hsl(0, 66%, 56%);
   visibility: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
 }
 
 body {
@@ -112,7 +120,7 @@ body form .consent div label {
   cursor: pointer;
   margin-left: 15px;
 }
-body form input[type=submit] {
+body form input[type="submit"] {
   background-color: hsl(169, 82%, 27%);
   width: 100%;
   padding: 20px;
@@ -124,6 +132,47 @@ body form input[type=submit] {
   font-weight: bold;
   letter-spacing: 2px;
   cursor: pointer;
+}
+body .modal {
+  display: none; /* Скрываем модальное окно по умолчанию */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  z-index: 1000; /* Модальное окно поверх других элементов */
+}
+body .modal .modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px; /* Ограничение максимального размера */
+  position: relative; /* Для позиционирования кнопки закрытия */
+}
+body .modal .modal-content .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+body .favorite-button {
+  background-color: hsl(0, 66%, 56%);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+  padding: 12px 18px;
+  border-radius: 4px;
+}
+body .favorite-button :hover {
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.44);
 }
 
 input:hover {
@@ -162,13 +211,14 @@ input:hover {
     flex-direction: column;
     align-items: stretch;
   }
-  body form input[type=submit] {
+  body form input[type="submit"] {
     padding: 15px;
   }
   body form .consent label {
     font-size: 14px;
   }
-  input[type=text], input[type=email] {
+  input[type="text"],
+  input[type="email"] {
     padding: 11px;
   }
 }

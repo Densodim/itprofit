@@ -7,49 +7,64 @@
 </head>
 <body>
 <div id="app">
-    <div class="contact-form">
+    <header>
+        <button class="favorite-button" id="openModalButton">Open Modal Window</button>
+    </header>
 
-        <form>
-            <h1>Contact Us</h1>
-            <div class="name">
-                <div class="firstName">
-                    <label for="first-name">First Name <span class="star">*</span></label>
-                    <input type="text" id="first-name" name="firstName">
+    <section>
+        <div class="contact-form">
+            <form>
+                <h1>Contact Us</h1>
+                <div class="name">
+                    <div class="firstName">
+                        <label for="first-name">First Name <span class="star">*</span></label>
+                        <input type="text" id="first-name" name="firstName">
+                        <span class="error">This field is required</span>
+                    </div>
+                </div>
+
+                <div class="email">
+                    <label for="email">Email Address <span class="star">*</span></label>
+                    <input type="email" id="email" name="email">
                     <span class="error">This field is required</span>
                 </div>
-            </div>
 
-            <div class="email">
-                <label for="email">Email Address <span class="star">*</span></label>
-                <input type="email" id="email" name="email">
-                <span class="error">This field is required</span>
-            </div>
-
-            <div class="phone">
-                <label for="phone">Phone Number <span class="star">*</span></label>
-                <input type="text" id="phone" placeholder="+{375}(00)000-00-00" name="phone">
-                <span class="error">This field is required</span>
-            </div>
-
-
-            <div class="message">
-                <label for="message">Message <span class="star">*</span></label>
-                <textarea name="message" id="message"></textarea>
-                <span class="error">This field is required</span>
-            </div>
-
-            <div class="consent">
-                <div>
-                    <input type="checkbox" id="consent">
-                    <label for="consent">I consent to being contacted by the team <span class="star">*</span></label>
+                <div class="phone">
+                    <label for="phone">Phone Number <span class="star">*</span></label>
+                    <input type="text" id="phone" placeholder="+{375}(00)000-00-00" name="phone">
+                    <span class="error">This field is required</span>
                 </div>
-                <span class="error">To submit this form, please consent to being contacted</span>
+
+
+                <div class="message">
+                    <label for="message">Message <span class="star">*</span></label>
+                    <textarea name="message" id="message"></textarea>
+                    <span class="error">This field is required</span>
+                </div>
+
+                <div class="consent">
+                    <div>
+                        <input type="checkbox" id="consent">
+                        <label for="consent">I consent to being contacted by the team <span
+                                class="star">*</span></label>
+                    </div>
+                    <span class="error">To submit this form, please consent to being contacted</span>
+                </div>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="closeModalButton" class="close-button">&times;</span>
+                <h1>Модальное окно</h1>
+                <div id="valueModal"></div>
             </div>
-
-            <input type="submit" value="Submit">
-        </form>
-
-    </div>
+        </div>
+    </section>
 </div>
 </body>
 </html>
