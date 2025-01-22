@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Karla", sans-serif;
   src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("ttf"), url("../assets/fonts/Karla-VariableFont_wght.ttf") format("ttf");
@@ -132,7 +131,7 @@ body form input[type=submit] {
   cursor: pointer;
 }
 body .modal {
-  display: none; /* Скрываем модальное окно по умолчанию */
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -140,16 +139,16 @@ body .modal {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
-  z-index: 1000; /* Модальное окно поверх других элементов */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 body .modal .modal-content {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
   width: 80%;
-  max-width: 500px; /* Ограничение максимального размера */
-  position: relative; /* Для позиционирования кнопки закрытия */
+  max-width: 500px;
+  position: relative;
 }
 body .modal .modal-content .close-button {
   position: absolute;
