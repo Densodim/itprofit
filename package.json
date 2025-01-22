@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "biome": "biome format --write ./src",
+    "start": "node api/index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +21,11 @@
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "imask": "^7.6.1"
   }
 }
