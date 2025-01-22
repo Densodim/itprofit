@@ -25,6 +25,8 @@ export default function openModal(value = null) {
     document.body.classList.remove("no-scroll")
 
     body.style.paddingRight = ""
+
+    valueModal.textContent = "";
   })
 
   window.addEventListener("click", (event) => {
@@ -33,6 +35,8 @@ export default function openModal(value = null) {
       document.body.classList.remove("no-scroll")
 
       body.style.paddingRight = ""
+
+      valueModal.textContent = "";
     }
   })
 }
