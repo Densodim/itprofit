@@ -1,8 +1,7 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Karla", sans-serif;
-  src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("ttf"),
-    url("../assets/fonts/Karla-VariableFont_wght.ttf") format("ttf");
+  src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("ttf"), url("../assets/fonts/Karla-VariableFont_wght.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,8 +17,7 @@ body {
   align-items: center;
 }
 
-input[type="email"],
-input[type="text"] {
+input[type=email], input[type=text] {
   padding: 14px;
   border-radius: 5px;
   border: 1px solid hsl(186, 15%, 59%);
@@ -120,7 +118,7 @@ body form .consent div label {
   cursor: pointer;
   margin-left: 15px;
 }
-body form input[type="submit"] {
+body form input[type=submit] {
   background-color: hsl(169, 82%, 27%);
   width: 100%;
   padding: 20px;
@@ -184,7 +182,7 @@ input:hover {
     width: 80%;
   }
 }
-@media (min-width: 625px) {
+@media (max-width: 625px) {
   body form {
     width: 80%;
   }
@@ -211,14 +209,13 @@ input:hover {
     flex-direction: column;
     align-items: stretch;
   }
-  body form input[type="submit"] {
+  body form input[type=submit] {
     padding: 15px;
   }
   body form .consent label {
     font-size: 14px;
   }
-  input[type="text"],
-  input[type="email"] {
+  input[type=text], input[type=email] {
     padding: 11px;
   }
 }

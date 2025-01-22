@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "biome": "biome format --write ./src",
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "dev": "npx webpack serve"
   },
   "keywords": [],
   "author": "",
